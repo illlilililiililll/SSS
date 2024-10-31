@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 x = []
 y = []
@@ -25,3 +26,12 @@ coef = coef[::-1]
 print("k =", coef[0])
 for i in range(1, len(coef)):
    print(f"a{i} = {coef[i]}")
+
+max_x = max(x)
+min_x = min(x) * 0.9
+
+x_ = np.linspace(min_x, max_x, 100)
+y_ = np.polyval(coef[::-1], x_)
+plt.plot(x_, y_)
+plt.scatter(x, y)
+plt.show()
